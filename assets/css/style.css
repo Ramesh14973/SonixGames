@@ -59,6 +59,7 @@ body {
     box-shadow: var(--shadow);
     border: 1px solid rgba(255, 255, 255, .12);
     overflow: hidden;
+    position: relative;
 }
 
 .progress-step {
@@ -72,7 +73,7 @@ body {
 
 .step-bar {
     margin: 8px 20px 16px 20px;
-    width: calc(100% - 40px);
+    width: calc(100%);
     height: var(--progress-track-height);
     border-radius: 999px;
     background: var(--progress-track-bg);
@@ -169,30 +170,20 @@ body {
 
 /* HEADER + IMAGE */
 header {
-    padding: 0;
+    padding: 60px 0 0 0;
 }
 
 .top_picture {
     width: 200px;
     height: auto;
-    position: fixed;
+    position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
     z-index: 10;
     display: block;
     object-fit: cover;
     border-radius: 0;
     margin-bottom: 0;
-}
-
-.logo-strip {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: var(--card);
-    z-index: 5;
 }
 
 /* TEXT BLOCKS */
@@ -247,6 +238,7 @@ header {
     justify-content: flex-end;
     gap: 8px;
     margin-bottom: 8px;
+    direction: ltr;
 }
 
 .lang-btn {
@@ -888,6 +880,7 @@ input[type="password"] {
     justify-content: flex-end;
     gap: 8px;
     margin-bottom: 16px;
+    direction: ltr;
 }
 
 .lang-btn {

@@ -74,12 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.toggle("lang-en", !isAr);
 
         const s = strings[lang];
-       // alert(s.title)
-       // alert(s.lead)
+        // alert(s.title)
+        // alert(s.lead)
         document.getElementById("service-title").textContent = s.title;
-      //  document.getElementById("lead-text").textContent = s.lead;
-       // document.getElementById("msisdn-hint-text").textContent = s.msisdnHint;
-       // document.getElementById("msisdn-label").textContent = s.msisdnLabel;
+        //  document.getElementById("lead-text").textContent = s.lead;
+        // document.getElementById("msisdn-hint-text").textContent = s.msisdnHint;
+        // document.getElementById("msisdn-label").textContent = s.msisdnLabel;
         document.getElementById("submit-msisdn-text").textContent = s.submitMsisdn;
         document.getElementById("pin-title").textContent = s.pinTitle;
         document.getElementById("pin-sub").textContent = s.pinSub;
@@ -205,15 +205,11 @@ document.addEventListener("DOMContentLoaded", function () {
         Object.keys(sections).forEach((key) => {
             sections[key].style.display = key === name ? "block" : "none";
         });
-
-        if (name === "msisdn") setProgress(0);
-        else if (name === "pin") setProgress(1);
-        else if (name === "thankYou") setProgress(2);
     }
 
     const initialLang = getQueryLang();
     setLanguage(initialLang);
-    setProgress(0); // initial state 0%
+    setTimeout(() => setProgress(1), 100); // initial state 50% after a delay
     showSection("msisdn");
 
     langButtons.forEach((btn) => {
@@ -252,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
             showError(errors.msisdn, strings[getQueryLang()].msisdnError);
             return;
         }
-        setProgress(1); // 50% after entering MSISDN
+        setProgress(2); // 100% after entering MSISDN
         showSection("pin");
         inputs.pin.focus();
     });
@@ -263,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
             showError(errors.pin, strings[getQueryLang()].pinError);
             return;
         }
-        setProgress(2); // 100% after PIN
+        // setProgress(2); // 100% after PIN - removed as per request
         showSection("thankYou");
     });
 
